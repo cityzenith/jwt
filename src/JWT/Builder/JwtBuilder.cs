@@ -23,8 +23,7 @@ namespace JWT.Builder
         private IBase64UrlEncoder _urlEncoder = new JwtBase64UrlEncoder();
         private IDateTimeProvider _dateTimeProvider = new UtcDateTimeProvider();
 
-        private IJwtAlgorithmFacyory _algFactory;
-        private IJwtAlgorithm _algorithm;
+        private Func<IJwtAlgorithm> _algFactory;
         private byte[][] _secrets;
         private bool _verify;
 
@@ -159,8 +158,8 @@ namespace JWT.Builder
         /// <summary>
         /// Sets JWT algorithm factory.
         /// </summary>
-        /// <returns>Current builder instance</returns>
-        public JwtBuilder WithAlgorithmFactory(IJwtAlgorithmFactory algFactory)
+        /// <returns>Current builder instance.</returns>
+        public JwtBuilder WithAlgorithmFactory(Func<IJwtAlgorithm> algFactory)
         {
             _algFactory = algFactory;
             return this;
@@ -169,16 +168,12 @@ namespace JWT.Builder
         /// <summary>
         /// Sets JWT algorithm.
         /// </summary>
-        /// <remarks>
-        /// Required to create new token.
-        /// </remarks>
-        /// <returns>Current builder instance</returns>
+        /// <returns>Current builder instance.</returns>
         public JwtBuilder WithAlgorithm(IJwtAlgorithm algorithm)
         {
-            _algorithm = algorithm;
+            _algFactory = () => algorithm;
             return this;
         }
-
 
         /// <summary>
         /// Sets certificate secret.
@@ -192,7 +187,6 @@ namespace JWT.Builder
             _secrets = secrets.Select(s => GetBytes(s)).ToArray();
             return this;
         }
-
 
         /// <summary>
         /// Sets certificate secret.
