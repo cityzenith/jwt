@@ -15,7 +15,7 @@ namespace JWT
         private readonly IJsonSerializer _jsonSerializer;
         private readonly IJwtValidator _jwtValidator;
         private readonly IBase64UrlEncoder _urlEncoder;
-        private readonly IAlgorithmFactory _algFactory;
+        private readonly Func<IJwtAlgorithm> _algFactory;
 
         /// <summary>
         /// Creates an instance of <see cref="JwtDecoder" />
@@ -24,8 +24,8 @@ namespace JWT
         /// <param name="jwtValidator">The Jwt validator</param>
         /// <param name="urlEncoder">The Base64 URL Encoder</param>
         /// <param name="algFactory">The Algorithm</param>
-        public JwtDecoder(IJsonSerializer jsonSerializer, IJwtValidator jwtValidator, IBase64UrlEncoder urlEncoder, IAlgorithm algorithm)
-            : this(jsonSerializer, jwtValidator, urlEncoder, new DelegateAlgorithmFactory(algorithm))
+        public JwtDecoder(IJsonSerializer jsonSerializer, IJwtValidator jwtValidator, IBase64UrlEncoder urlEncoder, IJwtAlgorithm algorithm)
+            : this(jsonSerializer, jwtValidator, urlEncoder, () => algorithm)
         {
         }
 
@@ -36,7 +36,7 @@ namespace JWT
         /// <param name="jwtValidator">The Jwt validator</param>
         /// <param name="urlEncoder">The Base64 URL Encoder</param>
         /// <param name="algFactory">The Algorithm Factory</param>
-        public JwtDecoder(IJsonSerializer jsonSerializer, IJwtValidator jwtValidator, IBase64UrlEncoder urlEncoder, IAlgorithmFactory algFactory)
+        public JwtDecoder(IJsonSerializer jsonSerializer, IJwtValidator jwtValidator, IBase64UrlEncoder urlEncoder, Func<IJwtAlgorithm> algFactory)
         {
             _jsonSerializer = jsonSerializer;
             _jwtValidator = jwtValidator;
