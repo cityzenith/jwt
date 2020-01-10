@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C006FCBA-F62F-487B-B437-5550F2D6CEEB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JWT.Unity</RootNamespace>
+    <AssemblyName>JWT.Unity</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\JsonForUnity.1.0.0\lib\net35\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\src\JWT\Algorithms\HMACSHA256Algorithm.cs">
+      <Link>Algorithms\HMACSHA256Algorithm.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\Algorithms\HMACSHA384Algorithm.cs">
+      <Link>Algorithms\HMACSHA384Algorithm.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\Algorithms\HMACSHA512Algorithm.cs">
+      <Link>Algorithms\HMACSHA512Algorithm.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\Algorithms\HMACSHAAlgorithmFactory.cs">
+      <Link>Algorithms\HMACSHAAlgorithmFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\Algorithms\IAlgorithmFactory.cs">
+      <Link>Algorithms\IAlgorithmFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\Algorithms\IJwtAlgorithm.cs">
+      <Link>Algorithms\IJwtAlgorithm.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\Algorithms\RS256Algorithm.cs">
+      <Link>Algorithms\RS256Algorithm.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\Algorithms\RSAlgorithmFactory.cs">
+      <Link>Algorithms\RSAlgorithmFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\Builder\ClaimName.cs">
+      <Link>Builder\ClaimName.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\Builder\EnumExtensions.cs">
+      <Link>Builder\EnumExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\Builder\HeaderName.cs">
+      <Link>Builder\HeaderName.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\Builder\JwtBuilder.cs">
+      <Link>Builder\JwtBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\Builder\JwtBuilderExtensions.cs">
+      <Link>Builder\JwtBuilderExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\Builder\JwtData.cs">
+      <Link>Builder\JwtData.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\IBase64UrlEncoder.cs">
+      <Link>IBase64UrlEncoder.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\IDateTimeProvider.cs">
+      <Link>IDateTimeProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\IJsonSerializer.cs">
+      <Link>IJsonSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\IJwtDecoder.cs">
+      <Link>IJwtDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\IJwtEncoder.cs">
+      <Link>IJwtEncoder.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\IJwtValidator.cs">
+      <Link>IJwtValidator.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\Internal\EncodingHelper.cs">
+      <Link>Internal\EncodingHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\InvalidTokenPartsException.cs">
+      <Link>InvalidTokenPartsException.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\JwtBase64UrlEncoder.cs">
+      <Link>JwtBase64UrlEncoder.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\JwtDecoder.cs">
+      <Link>JwtDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\JwtEncoder.cs">
+      <Link>JwtEncoder.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\JwtHashAlgorithm.cs">
+      <Link>JwtHashAlgorithm.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\JwtParts.cs">
+      <Link>JwtParts.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\JwtValidator.cs">
+      <Link>JwtValidator.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\Serializers\JsonNetSerializer.cs">
+      <Link>Serializers\JsonNetSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\SignatureVerificationException.cs">
+      <Link>SignatureVerificationException.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\TokenExpiredException.cs">
+      <Link>TokenExpiredException.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\UnixEpoch.cs">
+      <Link>UnixEpoch.cs</Link>
+    </Compile>
+    <Compile Include="..\src\JWT\UtcDateTimeProvider.cs">
+      <Link>UtcDateTimeProvider.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="package.nuspec" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

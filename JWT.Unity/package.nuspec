@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <!--*-->
+    <id>JWT.Unity</id>
+    <!--*-->
+    <version>1.0.0</version>
+    <title>JWT.Unity</title>
+    <!--*-->
+    <authors> John Sheehan and Cityzenith, LLC</authors>
+    <owners>Cityzenith, LLC</owners>
+    <!--
+    <licenseUrl></licenseUrl>
+    <projectUrl></projectUrl>
+    <iconUrl></iconUrl>
+-->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <!--*-->
+    <description>JWT Library for Unity</description>
+    <!--*-->
+    <releaseNotes>Initial version</releaseNotes>
+    <copyright>Copyright ©  2020</copyright>
+    <tags>
+    </tags>
+    <dependencies>
+      <!--
+      <dependency id="SampleDependency" version="1.0" />
+-->
+    </dependencies>
+  </metadata>
+</package>
